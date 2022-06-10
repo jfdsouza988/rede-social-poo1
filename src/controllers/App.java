@@ -22,11 +22,11 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-      /*   List<User> users = new ArrayList<User>();
+       /*  List<User> users = new ArrayList<User>();
         users.add(new User("admin", "UFP31"));
 
         PersistData persist = new PersistData();
-        persist.serializeUsers(users); */
+        persist.save(users); */
 
         primaryStage.setTitle("Clubinho da Computação Login");
 

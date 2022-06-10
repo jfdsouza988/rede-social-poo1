@@ -15,7 +15,8 @@ public class User implements Serializable {
   private String interests;
 
   private List<Post> posts;
-  private List<Follow> followers;
+  private List<User> following;
+  private List<User> followers;
 
   public User(String name, String password, String birthDate, String academicEducation, String interests) {
     this.name = name;
@@ -24,14 +25,30 @@ public class User implements Serializable {
     this.academicEducation = academicEducation;
     this.interests = interests;
     this.posts = new ArrayList<>();
-    this.followers = new ArrayList<>();
+    this.setFollowers(new ArrayList<>());
+  }
+
+  public List<User> getFollowers() {
+    return followers;
+  }
+
+  public void setFollowers(List<User> followers) {
+    this.followers = followers;
+  }
+
+  public List<User> getFollowing() {
+    return following;
+  }
+
+  public void setFollowing(List<User> following) {
+    this.following = following;
   }
 
   public User(String name, String password) {
     this.name = name;
     this.password = password;
     this.posts = new ArrayList<>();
-    this.followers = new ArrayList<>();
+    this.setFollowers(new ArrayList<>());
   }
 
   public String getName() {
@@ -82,12 +99,8 @@ public class User implements Serializable {
     this.posts = posts;
   }
 
-  public List<Follow> getFollowers() {
-    return this.followers;
-  }
-
-  public void setFollowers(List<Follow> followers) {
-    this.followers = followers;
+  public void addPost(String author, String title, String content) {
+    posts.add(new Post(author, title, content));
   }
 
   @Override

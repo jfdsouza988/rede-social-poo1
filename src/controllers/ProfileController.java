@@ -1,14 +1,20 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.Post;
 import models.User;
+import utils.PersistData;
 
 public class ProfileController {
 
@@ -16,6 +22,9 @@ public class ProfileController {
 
     @FXML
     private Button btnClose;
+
+    @FXML
+    private Button btnClear;
 
     @FXML
     private Button btnNewPost;
@@ -33,6 +42,9 @@ public class ProfileController {
     private Label loggedUser;
 
     @FXML
+    private Label viewPostContent;
+
+    @FXML
     private ListView<String> listPosts;
 
     @FXML
@@ -47,12 +59,40 @@ public class ProfileController {
         lbBirthDate.setText(userLogged.getBirthDate());
         lbAcademicEducation.setText(userLogged.getAcademicEducation());
         lbInterests.setText(userLogged.getInterests());
+
+        List<String> userPosts = new ArrayList<>();
+
+        for (Post pst : userLogged.getPosts()) {
+            userPosts.add(pst.getTitle());
+        }
+
+        listPosts.setItems(FXCollections.observableArrayList(userPosts));
     }
 
     @FXML
     void handleClose(ActionEvent event) {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    void handleClearFields(ActionEvent event) {
+        txtPostTitle.clear();
+        txtPostContent.clear();
+
+        userInfo(userLogged);
+    }
+
+    @FXML
+    void showPostContent(MouseEvent event) {
+        String postSelected = listPosts.getSelectionModel().getSelectedItem();
+
+        userLogged.getPosts().forEach(post -> {
+            if (post.getTitle().equals(postSelected)) {
+                viewPostContent.setText(post.getContent());
+            }
+        });
+
     }
 
     @FXML
@@ -66,10 +106,18 @@ public class ProfileController {
         if (postContent.isBlank()) {
             System.out.println("Conteudo do post nao informado");
         }
-        Post newPost = new Post(userLogged, postTitle, postContent);
 
-        userLogged.getPosts().add(newPost);
+        PersistData persistor = new PersistData();
+        List<User> users = persistor.getAllUsers();
 
-        System.out.println(userLogged);
+        users.forEach(u -> {
+            if (u.getName().equals(userLogged.getName())) {
+                u.addPost(userLogged.getName(), postTitle, postContent);
+                userLogged = u;
+            }
+        });
+
+        persistor.save(users);
+        handleClearFields(event);
     }
 }

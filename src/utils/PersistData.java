@@ -17,9 +17,11 @@ public class PersistData {
 
   public void save(List<User> users) {
     try {
-     /*  if (oos == null) {
-        oos = new ObjectOutputStream(new FileOutputStream(filePath));
-      } */
+      /*
+       * if (oos == null) {
+       * oos = new ObjectOutputStream(new FileOutputStream(filePath));
+       * }
+       */
       oos = new ObjectOutputStream(new FileOutputStream(filePath));
 
       for (int i = 0; i < users.size(); i++) {
