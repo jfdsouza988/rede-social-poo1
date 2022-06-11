@@ -37,22 +37,6 @@ public class User implements Serializable {
     this.following = new ArrayList<>();
   }
 
-  public List<User> getFollowers() {
-    return followers;
-  }
-
-  public void setFollowers(List<User> followers) {
-    this.followers = followers;
-  }
-
-  public List<User> getFollowing() {
-    return following;
-  }
-
-  public void setFollowing(List<User> following) {
-    this.following = following;
-  }
-
   public String getName() {
     return this.name;
   }
@@ -99,6 +83,22 @@ public class User implements Serializable {
 
   public void setPosts(List<Post> posts) {
     this.posts = posts;
+  }
+
+  public List<User> getFollowing() {
+    return this.following;
+  }
+
+  public void setFollowing(List<User> following) {
+    this.following = following;
+  }
+
+  public List<User> getFollowers() {
+    return this.followers;
+  }
+
+  public void setFollowers(List<User> followers) {
+    this.followers = followers;
   }
 
   public void addPost(String author, String title, String content) {

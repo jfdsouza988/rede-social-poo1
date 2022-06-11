@@ -45,14 +45,13 @@
          <children>
             <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="468.0" prefWidth="771.0">
                <children>
-                  <ListView layoutX="14.0" layoutY="14.0" prefHeight="444.0" prefWidth="345.0" />
-                  <Label layoutX="499.0" layoutY="35.0" text="Título do post">
+                  <ListView fx:id="friendsPostsList" layoutX="14.0" layoutY="14.0" onMouseClicked="#showDetailsPost" prefHeight="444.0" prefWidth="345.0" />
+                  <Label fx:id="txtPostTitle" layoutX="490.0" layoutY="36.0" text="Título do post" wrapText="true">
                      <font>
                         <Font size="26.0" />
                      </font></Label>
-                  <Label layoutX="528.0" layoutY="161.0" text="Conteúdo do post" />
-                  <Label layoutX="541.0" layoutY="310.0" text="Autor do post" />
-                  <Label layoutX="535.0" layoutY="345.0" text="Data de criação" />
+                  <Label fx:id="txtContentPost" alignment="CENTER" layoutX="401.0" layoutY="98.0" prefHeight="236.0" prefWidth="345.0" text="Conteúdo do post" wrapText="true" />
+                  <Label fx:id="txtAuthorPost" layoutX="532.0" layoutY="366.0" text="Autor do post" />
                   <Button fx:id="btnBack" layoutX="630.0" layoutY="428.0" mnemonicParsing="false" onAction="#showMainPage" prefHeight="26.0" prefWidth="116.0" text="Voltar" />
                </children>
             </AnchorPane>

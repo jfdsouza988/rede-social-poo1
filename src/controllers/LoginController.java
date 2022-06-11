@@ -37,6 +37,8 @@ public class LoginController {
       }
     });
 
+    System.out.println(persist.getAllUsers());
+
     if (loggedUser != null) {
       try {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("../views/main.fxml"));

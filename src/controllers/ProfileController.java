@@ -84,10 +84,6 @@ public class ProfileController {
             userFollowers.add(usr.getName());
         }
         listFollowersUsers.setItems(FXCollections.observableArrayList(userFollowers));
-
-        System.out.println("SEGUINDO " + userFollowing);
-        System.out.println("SEGUIDORES " + userFollowers);
-        System.out.println("POSTS" + userPosts);
     }
 
     @FXML

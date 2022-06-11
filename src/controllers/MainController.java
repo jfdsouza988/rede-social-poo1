@@ -70,6 +70,9 @@ public class MainController {
       stage.setResizable(true);
       stage.show();
 
+      FeedController controller = fxmlLoader.getController();
+      controller.userInfo(user);
+
     } catch (IOException e) {
       System.out.println("Load error main page");
     }
