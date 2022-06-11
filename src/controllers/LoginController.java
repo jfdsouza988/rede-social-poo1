@@ -31,8 +31,6 @@ public class LoginController {
 
     PersistData persist = new PersistData();
 
-    System.out.println(persist.getAllUsers());
-
     persist.getAllUsers().forEach(user -> {
       if (userName.equals(user.getName()) && userPassword.equals(user.getPassword())) {
         loggedUser = user;

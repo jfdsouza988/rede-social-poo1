@@ -51,17 +51,12 @@
       <Label fx:id="lbAcademicEducation" layoutX="172.0" layoutY="179.0" text="academicEducation" AnchorPane.leftAnchor="172.0" />
       <Label fx:id="lbInterests" layoutX="105.0" layoutY="239.0" text="Interests" AnchorPane.leftAnchor="105.0" />
       <Separator layoutX="339.0" layoutY="23.0" orientation="VERTICAL" prefHeight="468.0" prefWidth="7.0" AnchorPane.bottomAnchor="278.0" AnchorPane.topAnchor="23.0" />
-      <Label layoutX="382.0" layoutY="45.0" text="Meus amigos" AnchorPane.leftAnchor="382.0" AnchorPane.topAnchor="45.0">
+      <Label layoutX="382.0" layoutY="45.0" text="Seguindo" AnchorPane.leftAnchor="382.0" AnchorPane.topAnchor="45.0">
          <font>
             <Font name="Arial" size="18.0" />
          </font>
       </Label>
       <Separator layoutX="127.0" layoutY="497.0" prefWidth="200.0" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <AnchorPane layoutX="382.0" layoutY="75.0" prefHeight="388.0" prefWidth="612.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="382.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="80.0">
-         <children>
-            <ListView layoutX="100.0" layoutY="14.0" prefHeight="393.0" prefWidth="599.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
       <AnchorPane layoutX="443.0" layoutY="545.0" prefHeight="203.0" prefWidth="544.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="545.0">
          <children>
             <ListView fx:id="listPosts" layoutX="-56.0" layoutY="14.0" onMouseClicked="#showPostContent" prefHeight="238.0" prefWidth="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="331.0" AnchorPane.topAnchor="0.0" />
@@ -85,5 +80,12 @@
       <Label layoutX="27.0" layoutY="131.0" text="Data de Nascimento:" />
       <Label layoutX="27.0" layoutY="179.0" text="Formação Acadêmica:" />
       <Label layoutX="27.0" layoutY="239.0" text="Interesses:" />
+      <Label layoutX="707.0" layoutY="45.0" text="Seguidores">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listFollowingUsers" layoutX="374.0" layoutY="88.0" prefHeight="385.0" prefWidth="287.0" />
+      <ListView fx:id="listFollowersUsers" layoutX="707.0" layoutY="88.0" prefHeight="385.0" prefWidth="287.0" />
    </children>
 </AnchorPane>

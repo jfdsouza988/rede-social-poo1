@@ -45,6 +45,12 @@ public class ProfileController {
     private Label viewPostContent;
 
     @FXML
+    private ListView<String> listFollowersUsers;
+
+    @FXML
+    private ListView<String> listFollowingUsers;
+
+    @FXML
     private ListView<String> listPosts;
 
     @FXML
@@ -61,12 +67,27 @@ public class ProfileController {
         lbInterests.setText(userLogged.getInterests());
 
         List<String> userPosts = new ArrayList<>();
+        List<String> userFollowing = new ArrayList<>();
+        List<String> userFollowers = new ArrayList<>();
 
         for (Post pst : userLogged.getPosts()) {
             userPosts.add(pst.getTitle());
         }
-
         listPosts.setItems(FXCollections.observableArrayList(userPosts));
+
+        for (User usr : userLogged.getFollowing()) {
+            userFollowing.add(usr.getName());
+        }
+        listFollowingUsers.setItems(FXCollections.observableArrayList(userFollowing));
+
+        for (User usr : userLogged.getFollowers()) {
+            userFollowers.add(usr.getName());
+        }
+        listFollowersUsers.setItems(FXCollections.observableArrayList(userFollowers));
+
+        System.out.println("SEGUINDO " + userFollowing);
+        System.out.println("SEGUIDORES " + userFollowers);
+        System.out.println("POSTS" + userPosts);
     }
 
     @FXML

@@ -25,7 +25,16 @@ public class User implements Serializable {
     this.academicEducation = academicEducation;
     this.interests = interests;
     this.posts = new ArrayList<>();
-    this.setFollowers(new ArrayList<>());
+    this.followers = new ArrayList<>();
+    this.following = new ArrayList<>();
+  }
+
+  public User(String name, String password) {
+    this.name = name;
+    this.password = password;
+    this.posts = new ArrayList<>();
+    this.followers = new ArrayList<>();
+    this.following = new ArrayList<>();
   }
 
   public List<User> getFollowers() {
@@ -42,13 +51,6 @@ public class User implements Serializable {
 
   public void setFollowing(List<User> following) {
     this.following = following;
-  }
-
-  public User(String name, String password) {
-    this.name = name;
-    this.password = password;
-    this.posts = new ArrayList<>();
-    this.setFollowers(new ArrayList<>());
   }
 
   public String getName() {
@@ -103,6 +105,14 @@ public class User implements Serializable {
     posts.add(new Post(author, title, content));
   }
 
+  public void addFollowing(User user) {
+    following.add(user);
+  }
+
+  public void addFollowers(User user) {
+    followers.add(user);
+  }
+
   @Override
   public String toString() {
     return "{" +
@@ -112,6 +122,7 @@ public class User implements Serializable {
         ", academicEducation='" + getAcademicEducation() + "'" +
         ", interests='" + getInterests() + "'" +
         ", posts='" + getPosts() + "'" +
+        ", following='" + getFollowing() + "'" +
         ", followers='" + getFollowers() + "'" +
         "}";
   }

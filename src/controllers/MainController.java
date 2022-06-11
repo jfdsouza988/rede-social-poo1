@@ -100,6 +100,9 @@ public class MainController {
       stage.setResizable(true);
       stage.show();
 
+      SearchController controller = fxmlLoader.getController();
+      controller.userInfo(user);
+
     } catch (IOException e) {
       System.out.println("Load error search user page");
     }

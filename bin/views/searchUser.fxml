@@ -37,6 +37,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -44,16 +45,23 @@
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ListView fx:id="listUsers" layoutX="14.0" layoutY="68.0" prefHeight="406.0" prefWidth="401.0" />
+            <ListView fx:id="listUsers" layoutX="14.0" layoutY="68.0" onMouseClicked="#showDetailsUser" prefHeight="406.0" prefWidth="401.0" />
             <TextField fx:id="txtSearchTerm" layoutX="14.0" layoutY="25.0" prefHeight="32.0" prefWidth="401.0" promptText="Buscar por nome ou interesses..." />
             <Button fx:id="btnSearch" layoutX="627.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleSearchUser" prefHeight="32.0" prefWidth="140.0" text="BUSCAR" />
-            <Button layoutX="484.0" layoutY="448.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="166.0" text="Adicionar aos amigos" />
+            <Button fx:id="btnAddFriend" layoutX="484.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleAddFriend" prefHeight="26.0" prefWidth="166.0" text="Adicionar aos amigos" />
             <Button fx:id="btnBack" layoutX="678.0" layoutY="448.0" mnemonicParsing="false" onAction="#showMainPage" prefHeight="26.0" prefWidth="87.0" text="Voltar" />
-            <Label layoutX="563.0" layoutY="91.0" text="Nome do usuário" />
-            <Label layoutX="550.0" layoutY="172.0" text="Interesses do usuário" />
-            <Label layoutX="551.0" layoutY="262.0" text="Formação acadêmica" />
-            <RadioButton fx:id="radioSearchName" layoutX="433.0" layoutY="32.0" mnemonicParsing="false" selected="true" text="Nome" />
-            <RadioButton fx:id="radioSearchInterests" layoutX="519.0" layoutY="32.0" mnemonicParsing="false" text="Interesses" />
+            <Label fx:id="txtNameUser" layoutX="563.0" layoutY="91.0" text="Nome do usuário" textAlignment="CENTER" />
+            <Label fx:id="txtInterestsUser" layoutX="550.0" layoutY="172.0" text="Interesses do usuário" textAlignment="CENTER" />
+            <Label fx:id="txtAcademicEducation" layoutX="551.0" layoutY="262.0" text="Formação acadêmica" textAlignment="CENTER" />
+            <RadioButton fx:id="radioSearchName" layoutX="433.0" layoutY="32.0" mnemonicParsing="false" selected="true" text="Nome">
+               <toggleGroup>
+                  <ToggleGroup fx:id="search" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioSearchInterests" layoutX="519.0" layoutY="32.0" mnemonicParsing="false" text="Interesses" toggleGroup="$search" />
+            <Label layoutX="468.0" layoutY="91.0" text="Nome:" />
+            <Label layoutX="468.0" layoutY="172.0" text="Interesses:" />
+            <Label layoutX="468.0" layoutY="262.0" text="Formação:" />
          </children>
     </AnchorPane>
   </children>

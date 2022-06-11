@@ -9,8 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 /* import models.User;
-import utils.PersistData;
- */
+import utils.PersistData; */
+
 public class App extends Application {
 
     private static Scene loginScene;
@@ -22,7 +22,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-       /*  List<User> users = new ArrayList<User>();
+        /* List<User> users = new ArrayList<User>();
         users.add(new User("admin", "UFP31"));
 
         PersistData persist = new PersistData();
