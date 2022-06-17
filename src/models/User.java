@@ -29,7 +29,7 @@ public class User implements Serializable {
     this.posts = new ArrayList<>();
     this.followers = new ArrayList<>();
     this.following = new ArrayList<>();
-  }  
+  }
 
   public User(String name, String password, String role) {
     this.name = name;
@@ -132,6 +132,7 @@ public class User implements Serializable {
         ", birthDate='" + getBirthDate() + "'" +
         ", academicEducation='" + getAcademicEducation() + "'" +
         ", interests='" + getInterests() + "'" +
+        ", role='" + getRole() + "'" +
         ", posts='" + getPosts() + "'" +
         ", following='" + getFollowing() + "'" +
         ", followers='" + getFollowers() + "'" +
