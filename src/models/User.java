@@ -13,6 +13,7 @@ public class User implements Serializable {
   private String birthDate;
   private String academicEducation;
   private String interests;
+  private String role;
 
   private List<Post> posts;
   private List<User> following;
@@ -24,14 +25,16 @@ public class User implements Serializable {
     this.birthDate = birthDate;
     this.academicEducation = academicEducation;
     this.interests = interests;
+    this.setRole("user");
     this.posts = new ArrayList<>();
     this.followers = new ArrayList<>();
     this.following = new ArrayList<>();
-  }
+  }  
 
-  public User(String name, String password) {
+  public User(String name, String password, String role) {
     this.name = name;
     this.password = password;
+    this.setRole(role);
     this.posts = new ArrayList<>();
     this.followers = new ArrayList<>();
     this.following = new ArrayList<>();
@@ -75,6 +78,14 @@ public class User implements Serializable {
 
   public void setInterests(String interests) {
     this.interests = interests;
+  }
+
+  public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
   }
 
   public List<Post> getPosts() {

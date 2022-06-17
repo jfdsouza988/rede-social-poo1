@@ -37,7 +37,11 @@ public class MainController {
     this.user = u;
     loggedUser.setText(user.getName());
 
-    if (!user.getName().equals("admin")) {
+    if (user.getRole().equals("admin")) {
+      btnProfile.setVisible(false);
+      btnShowFeed.setVisible(false);
+      btnShowSearchUser.setVisible(false);
+    } else {
       btnShowRegister.setVisible(false);
     }
   }

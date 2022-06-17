@@ -23,7 +23,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         /* List<User> users = new ArrayList<User>();
-        users.add(new User("admin", "UFP31"));
+        users.add(new User("admin", "UFP31", "admin"));
 
         PersistData persist = new PersistData();
         persist.save(users); */
